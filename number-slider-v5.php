@@ -191,28 +191,15 @@ class acf_field_number_slider extends acf_field {
 	function input_admin_enqueue_scripts() {
 		
 		$dir = plugin_dir_url( __FILE__ );
-		
-	/*
-	
-		// register & include JS
-		wp_register_script( 'acf-input-number_slider', "{$dir}js/input.js" );
-		wp_enqueue_script('acf-input-number_slider');
-		
-		
-		// register & include CSS
-		wp_register_style( 'acf-input-number_slider', "{$dir}css/input.css" ); 
-		wp_enqueue_style('acf-input-number_slider');
-*/
-		
-		
-	  // add JS ##
-	  	wp_enqueue_script( 'ss-input', $dir . 'js/input.js', array( 'jquery' ), $this->version, false );
-	  	
 
-        wp_enqueue_script( 'jquery-simple-slider', $dir . 'js/simple-slider.js', array( 'jquery' ), $this->version, false );
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		// add JS ##
+	  	wp_enqueue_script( 'ss-input', $dir . 'js/input'.$suffix.'.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( 'jquery-simple-slider', $dir . 'js/simple-slider'.$suffix.'.js', array( 'jquery' ), $this->version, false );
 
         // add CSS ##
-        wp_enqueue_style( 'simple-slider', $dir . 'css/simple-slider.css', '', $this->version );
+        wp_enqueue_style( 'simple-slider', $dir . 'css/simple-slider'.$suffix.'.css', '', $this->version );
 
 		
 	}

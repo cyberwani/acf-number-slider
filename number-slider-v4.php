@@ -256,14 +256,15 @@ jQuery(document).ready( function($) {
 	*  @date	23/01/13
          * @link        http://loopj.com/jquery-simple-slider/
 	*/
-	function input_admin_enqueue_scripts() 
-        {
-            
-            // add JS ##
-            wp_enqueue_script( 'jquery-simple-slider', $this->settings['dir'] . 'js/simple-slider.js', array( 'jquery' ), $this->settings['version'], false );
+	function input_admin_enqueue_scripts()
+	{
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-            // add CSS ##
-            wp_enqueue_style( 'simple-slider', $this->settings['dir'] . 'css/simple-slider.css', '', $this->settings['version'] );
+		// add JS ##
+		wp_enqueue_script( 'jquery-simple-slider', $this->settings['dir'] . 'js/simple-slider'.$suffix.'.js', array( 'jquery' ), $this->settings['version'], false );
+
+		// add CSS ##
+		wp_enqueue_style( 'simple-slider', $this->settings['dir'] . 'css/simple-slider'.$suffix.'.css', '', $this->settings['version'] );
                 
 	}
 

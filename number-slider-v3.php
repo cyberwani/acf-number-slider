@@ -353,11 +353,13 @@ jQuery(document).ready( function($) {
     function admin_print_styles()
     {
 
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		
         // add JS ##
-        wp_enqueue_script( 'jquery-simple-slider', $this->settings['dir'] . 'js/simple-slider.js', array( 'jquery' ), $this->settings['version'], false );
+        wp_enqueue_script( 'jquery-simple-slider', $this->settings['dir'] . 'js/simple-slider'.$suffix.'.js', array( 'jquery' ), $this->settings['version'], false );
 
         // add CSS ##
-        wp_enqueue_style( 'simple-slider', $this->settings['dir'] . 'css/simple-slider.css', '', $this->settings['version'] );
+        wp_enqueue_style( 'simple-slider', $this->settings['dir'] . 'css/simple-slider'.$suffix.'.css', '', $this->settings['version'] );
 
     }
     
